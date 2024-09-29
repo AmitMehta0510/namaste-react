@@ -19,3 +19,38 @@
 - HTTPs
 - Tree Shaping - remove unused code
 - Different Build for development and production bundles
+
+#Web App Structures
+
+/\*
+*Header
+-Logo
+-Nav Items
+*Body
+-Search
+-Restaurent Container
+*- RestaurentCard
+-Image
+-Name, Star Rating, Cuisine DeliveryTime
+*Footer
+-Copyright & Legal
+-Address
+-Contact
+\*/
+
+Two type of export/import-->
+
+1. default export/import
+   export default Component;
+   import Copmonent from "path"
+
+2. Named export/import
+   export const Component
+   import {Component} "path"
+
+# React Hooks
+
+Normal JavaScript functions written by fb developers
+
+1.  useState() - to generate powerful state/react variables
+2.  useEffect()

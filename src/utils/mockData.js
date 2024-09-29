@@ -1,66 +1,3 @@
-import React from "react";
-import ReactDOM from "react-dom/client";
-
-/*
-*Header
--Logo
--Nav Items
-*Body
--Search
--Restaurent Container
-  *- RestaurentCard
-    -Image
-    -Name, Star Rating, Cuisine DeliveryTime
-*Footer
--Copyright & Legal
--Address
--Contact
-*/
-
-const Header = () => {
-  return (
-    <div className="header">
-      <div className="logo-container">
-        <img
-          className="logo"
-          src="https://images-platform.99static.com/A_Ax0GQuo_NHI0Y7XZHmFtGfBDY=/0x0:1000x1000/500x500/top/smart/99designs-contests-attachments/126/126252/attachment_126252018"
-        ></img>
-      </div>
-      <div className="nav-items">
-        <ul>
-          <li>Home</li>
-          <li>About Us</li>
-          <li>Contact Us</li>
-          <li>Cart</li>
-        </ul>
-      </div>
-    </div>
-  );
-};
-
-const RestaurantCard = (props) => {
-  const { resData } = props;
-  const { name, cuisines, costForTwo, avgRating, id } = resData?.info;
-  const { deliveryTime } = resData.info.sla;
-  return (
-    <div className="res-card">
-      <img
-        className="res-logo"
-        alt="res-logo"
-        src={
-          "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/" +
-          resData.info.cloudinaryImageId
-        }
-      ></img>
-      <h3>{name}</h3>
-      <h4>{cuisines.join(", ")}</h4>
-      <h4>{costForTwo}</h4>
-      <h4>{avgRating}</h4>
-      <h4>{deliveryTime} minutes</h4>
-    </div>
-  );
-};
-
 const resList = [
   {
     info: {
@@ -242,7 +179,7 @@ const resList = [
       areaName: "Jhotwara",
       costForTwo: "₹350 for two",
       cuisines: ["Burgers", "American"],
-      avgRating: 4.3,
+      avgRating: 3.3,
       parentId: "166",
       avgRatingString: "4.3",
       totalRatingsString: "24K+",
@@ -1042,7 +979,7 @@ const resList = [
         "Sweets",
         "Indian",
       ],
-      avgRating: 4.4,
+      avgRating: 3.4,
       veg: true,
       parentId: "387367",
       avgRatingString: "4.4",
@@ -1226,7 +1163,7 @@ const resList = [
       cuisines: ["Pizzas"],
       avgRating: 4.2,
       parentId: "721",
-      avgRatingString: "4.2",
+      avgRatingString: "3.2",
       totalRatingsString: "13K+",
       sla: {
         deliveryTime: 56,
@@ -1411,7 +1348,7 @@ const resList = [
         "Desserts",
         "Beverages",
       ],
-      avgRating: 4.4,
+      avgRating: 3.8,
       parentId: "4925",
       avgRatingString: "4.4",
       totalRatingsString: "1.7K+",
@@ -1859,28 +1796,4 @@ const resList = [
   },
 ];
 
-const Body = () => {
-  return (
-    <div className="body">
-      <div className="search">Search</div>
-      <div className="res-container">
-        {resList.map((restaurant) => (
-          <RestaurantCard key={restaurant.info.id} resData={restaurant} />
-        ))}
-      </div>
-    </div>
-  );
-};
-
-const AppLayout = () => {
-  return (
-    <div className="app">
-      <Header />
-      <Body />
-    </div>
-  );
-};
-
-const root = ReactDOM.createRoot(document.getElementById("root"));
-// root.render(Title); //rendering react element to DOM
-root.render(<AppLayout />); //rendering react component to DOM
+export default resList;
