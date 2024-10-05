@@ -81,7 +81,7 @@ const resList = [
   {
     info: {
       id: "59226",
-      name: "The Belgian Waffle Co.",
+      name: "Kabir",
       cloudinaryImageId: "5116a385bac0548e06c33c08350fbf11",
       locality: "Amrapali Marg",
       areaName: "Vaishali Nagar",
@@ -172,7 +172,7 @@ const resList = [
   {
     info: {
       id: "45176",
-      name: "Burger King",
+      name: "Manish",
       cloudinaryImageId:
         "RX_THUMBNAIL/IMAGES/VENDOR/2024/6/11/55d0daa1-ad2e-4893-be06-4709c5c68d49_45176.JPG",
       locality: "Triton Mall",
@@ -262,7 +262,7 @@ const resList = [
   {
     info: {
       id: "708228",
-      name: "Subway",
+      name: "Avdesh",
       cloudinaryImageId:
         "RX_THUMBNAIL/IMAGES/VENDOR/2024/6/4/d5ec0a30-2ec4-40d1-aad7-eb8d9ae67f97_708228.JPG",
       locality: "Sector-6",
@@ -342,7 +342,7 @@ const resList = [
   {
     info: {
       id: "533385",
-      name: "KFC",
+      name: "Ankit",
       cloudinaryImageId:
         "RX_THUMBNAIL/IMAGES/VENDOR/2024/4/17/4a509cf1-ea35-497b-9813-59145c5007c9_533385.JPG",
       locality: "Nursery Circle",
@@ -406,7 +406,7 @@ const resList = [
   {
     info: {
       id: "45972",
-      name: "Burger Farm",
+      name: "Khalid",
       cloudinaryImageId:
         "RX_THUMBNAIL/IMAGES/VENDOR/2024/5/10/213a964e-8671-4d10-aed6-4d5f0b4e2441_45972.JPG",
       locality: "Vaishali Nagar",
@@ -509,7 +509,7 @@ const resList = [
   {
     info: {
       id: "859187",
-      name: "Kwality Walls Ice Cream and More",
+      name: "Naresh",
       cloudinaryImageId:
         "RX_THUMBNAIL/IMAGES/VENDOR/2024/6/20/59278e7c-77c2-4007-baef-68a9b7934fdd_859187.JPG",
       locality: "Sector 1",
@@ -591,7 +591,7 @@ const resList = [
   {
     info: {
       id: "45606",
-      name: "Domino's Pizza",
+      name: "Neeraj",
       cloudinaryImageId:
         "RX_THUMBNAIL/IMAGES/VENDOR/2024/9/17/4aca7135-607f-49b0-8584-d0717b35e7ee_45606.jpg",
       locality: "Jhotwara",
@@ -702,7 +702,7 @@ const resList = [
   {
     info: {
       id: "632986",
-      name: "La Pino'z Pizza",
+      name: "Lalit",
       cloudinaryImageId: "b9ixfa8dpbf19njypjbt",
       locality: "Kalwad Road",
       areaName: "Jhotwara",
@@ -1155,7 +1155,7 @@ const resList = [
   {
     info: {
       id: "47597",
-      name: "Pizza Hut",
+      name: "Chandu",
       cloudinaryImageId: "2b4f62d606d1b2bfba9ba9e5386fabb7",
       locality: "Evershine Tower",
       areaName: "Vaishali Nagar",

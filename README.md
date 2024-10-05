@@ -48,9 +48,20 @@ Two type of export/import-->
    export const Component
    import {Component} "path"
 
-# React Hooks
+# React Hooks -->
 
 Normal JavaScript functions written by fb developers
 
 1.  useState() - to generate powerful state/react variables
-2.  useEffect()
+
+2.  useEffect() - useEffect(()=>{},[]); it takes two arguments,
+    -first is aero/callback funtion which is called after our component renders
+    -second is dependency array
+
+# 2 Approaches to fetch data from backend(via API call) -->
+
+1. when our app/page loads, we can make an api call and fetch the data and render it to UI
+   (page load)->(api call)->(render )
+
+2. as soon as the page loads, quickly render it to UI , make api call get new data re-render to UI
+   (page loads)->(render)->(api call)->(re-render the new data) --> Prefered
