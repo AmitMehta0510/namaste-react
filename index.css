@@ -1,170 +1,449 @@
-/* General Styles */
+/* Global Styling */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  background-color: rgb(255, 255, 255);
+}
+
+.app {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+/* General Styling for Header */
+/* Fixed header styling */
 .header {
-  border: 2px solid black;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px;
-  height: 80px;
+  padding: 15px 20px;
+  background-color: #fff;
+  border-bottom: 2px solid #f0f0f0;
+  position: fixed; /* This ensures the header is always at the top */
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000; /* Ensure it stays on top of other elements */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional: adds a subtle shadow */
 }
 
-.logo {
-  width: 90px;
+/* Spacing to ensure content doesn't overlap with the fixed header */
+body {
+  padding-top: 80px; /* Adjust the value based on the height of your header */
 }
 
+.logo-container img {
+  height: 60px;
+}
+
+/* Navbar Styling */
 .nav-items {
-  padding: 0px 20px;
-}
-
-.nav-items > ul {
-  font-size: 20px;
   display: flex;
-  list-style-type: none;
-  margin: 0;
+  gap: 30px;
+  align-items: center;
+}
+
+.nav-items ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
   padding: 0;
+  margin: 0;
 }
 
-.nav-items > ul > li {
+.nav-items ul li a {
+  text-decoration: none;
+  color: #333;
+  font-size: 18px;
+  transition: color 0.3s ease;
+}
+
+.nav-items ul li a:hover {
+  color: #ff6600;
+}
+
+/* Cart Icon and Badge */
+.header-icons {
+  display: flex;
+  gap: 20px;
+}
+
+.cart-btn {
+  position: relative;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.cart-btn img {
+  height: 30px;
+}
+
+.cart-count {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  background-color: #ff6600;
+  color: white;
+  font-size: 12px;
+  border-radius: 50%;
+  padding: 2px 6px;
+}
+
+/* Login Button */
+.login-btn {
+  padding: 10px 25px;
+  border-radius: 20px;
+  background-color: #ff6600;
+  color: white;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.login-btn:hover {
+  background-color: #e55d00;
+}
+
+/* Hamburger Menu for Mobile */
+.hamburger {
+  display: none;
+  font-size: 28px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* Responsive Design for Mobile View */
+@media (max-width: 768px) {
+  .nav-items {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 80px;
+    right: 0;
+    background-color: white;
+    width: 100%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  .nav-items.open {
+    display: flex;
+  }
+
+  .nav-items ul {
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+  }
+
+  .hamburger {
+    display: block;
+  }
+}
+
+/* RestaurantCard Styling */
+.res-card {
+  /* background-color: #fff; */
+  border-radius: 12px;
+  /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
+  overflow: hidden;
+  text-align: center;
+  transition: transform 0.3s, box-shadow 0.3s;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   padding: 10px;
-  margin: 10px;
+  height: 100%; /* Ensures all cards have equal height */
 }
 
+.res-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.res-logo {
+  width: 100%;
+  height: 190px;
+  object-fit: cover;
+  border-bottom: 1px solid #eee;
+  border-radius: 15px;
+}
+
+h3 {
+  font-size: 18px;
+  color: #333;
+  margin: 10px 10px;
+  display: flex;
+  align-items: start;
+}
+
+h4 {
+  font-size: 14px;
+  color: #555;
+  margin: 5px 10px;
+  display: flex;
+  align-items: start;
+}
+
+h4:nth-child(4) {
+  color: #ff6600; /* Different color for rating */
+}
+
+/* Body Styling */
+.body {
+  padding: 20px;
+  background-color: #fafafa;
+}
+
+.filter {
+  padding: 20px;
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.search {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.search-box {
+  padding: 10px;
+  border-radius: 20px;
+  border: 1px solid #ccc;
+  margin-bottom: 20px;
+}
+
+.search-btn {
+  padding: 8px 20px;
+  border-radius: 20px;
+  background-color: #ff6600;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.filter-btn {
+  padding: 10px 20px;
+  border-radius: 20px;
+  background-color: #ff6600;
+  color: white;
+  border: none;
+  cursor: pointer;
+  margin-left: 10px;
+  transition: background-color 0.3s;
+}
+
+.filter-btn:hover {
+  background-color: #e55d00;
+}
+
+/* Grid Layout for Restaurant Cards */
 .res-container {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-auto-rows: 1fr; /* Ensures equal height for all grid items */
+}
+
+@media (max-width: 768px) {
+  .res-container {
+    grid-template-columns: 1fr; /* For smaller screens, only one column */
+  }
+}
+
+/* Fix for single card layout */
+.res-container > *:only-child {
+  max-width: 400px;
+  margin: 0 auto; /* Centers the card when there's only one */
+}
+
+/* RestaurantMenu Styling */
+.menu {
+  padding: 20px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.menu-list {
+  margin-top: 20px;
+}
+
+.menu h1 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.menu-list p {
+  color: #555;
+}
+
+/* RestaurantHeader Styling */
+.restaurant-header {
+  padding: 20px;
+  background-color: #ff6347;
+  color: white;
+  border-radius: 10px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.restaurant-header h1 {
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+
+.restaurant-info {
+  display: flex;
+  justify-content: space-between;
+  font-size: 16px;
+}
+
+.restaurant-info span {
+  margin: 0 10px;
+}
+
+/* DealBanner Styling */
+.deal-banner {
+  background-color: #ffe0b3;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.deal-banner h2 {
+  font-size: 22px;
+  margin-bottom: 15px;
+}
+
+.deal-banner ul {
+  list-style-type: none;
+}
+
+.deal-banner li {
+  background-color: white;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+}
+
+.deal-banner p {
+  margin: 5px 0;
+}
+
+/* SearchFilter Styling */
+.search-filter {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.search-filter input {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.filters {
+  display: flex;
+  gap: 10px;
+}
+
+.filter-btn {
+  background-color: #ff6347;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.filter-btn:hover {
+  background-color: #e5533b;
+}
+
+/* MenuCategory Styling */
+.menu-category {
+  margin: 10px 0;
+}
+
+.menu-category h2 {
+  cursor: pointer;
+  font-size: 20px;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.menu-category .menu-items {
+  background-color: white;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.menu-items .item {
+  margin-bottom: 15px;
+}
+
+.menu-items .item h3 {
+  font-size: 18px;
+  margin-bottom: 5px;
+}
+
+.menu-items .item p {
+  font-size: 14px;
+  color: #555;
+}
+
+/* Shimmer Effect */
+.shimmer-wrapper {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
 }
 
-.res-card {
-  background-color: #bccfb5;
-  padding: 10px;
-  margin: 10px;
-  width: 200px;
-  transition: transform 0.2s ease;
-}
-
-.res-card:hover {
-  transform: scale(1.05);
-}
-
-.search {
-  padding: 15px;
-  width: 100%;
-}
-
-.res-logo {
-  width: 100%;
-}
-
-.filter-btn {
-  margin: 15px 0px;
-  cursor: pointer;
-  padding: 10px 20px;
-  background-color: #6fa4a0;
-  border: none;
-  color: white;
-  border-radius: 5px;
-}
-
-.filter {
-  display: flex;
-}
-.filter-btn:hover {
-  background-color: #558d89;
-}
-
-/* Responsive Styles */
-@media (max-width: 768px) {
-  .header {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .nav-items > ul {
-    flex-direction: column;
-    font-size: 18px;
-  }
-
-  .res-card {
-    width: 45%; /* Adjust the card width for tablets */
-  }
-
-  .filter-btn {
-    width: 100%;
-  }
-}
-
-@media (max-width: 480px) {
-  .nav-items > ul {
-    font-size: 16px;
-  }
-
-  .res-card {
-    width: 100%; /* Full width for mobile */
-  }
-
-  .filter-btn {
-    width: 100%;
-    font-size: 16px;
-  }
+.shimmer-card {
+  width: 250px;
+  height: 350px;
+  background-color: #f6f6f6;
+  margin: 15px;
+  border-radius: 10px;
+  position: relative;
+  overflow: hidden;
 }
 
 .shimmer {
-  display: flex;
-  flex-wrap: wrap;
-}
-.shimmer-card {
-  margin: 20px;
-  width: 200px;
-  height: 400px;
-  background-color: grey;
-}
-
-.login-btn {
-  cursor: pointer;
-}
-
-/* MenuCategory style */
-.restaurant-menu {
-  width: 80%;
-  margin: 0 auto;
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(
+    to right,
+    #f6f6f6 0%,
+    #e0e0e0 20%,
+    #f6f6f6 40%,
+    #f6f6f6 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
 }
 
-.menu-category {
-  margin-bottom: 1rem;
-}
-
-.category-header {
-  display: flex;
-  justify-content: space-between;
-  background-color: #f8f8f8;
-  padding: 1rem;
-  cursor: pointer;
-}
-
-.menu-item {
-  display: flex;
-  justify-content: space-between;
-  padding: 1rem;
-  border-bottom: 1px solid #ddd;
-}
-
-.menu-item-info {
-  max-width: 70%;
-}
-
-.menu-item-image img {
-  width: 100px;
-  height: 100px;
-  object-fit: cover;
-}
-
-.menu-item-image button {
-  display: block;
-  margin-top: 10px;
-  padding: 5px 10px;
-  background-color: #4caf50;
-  color: white;
-  border: none;
-  cursor: pointer;
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
 }

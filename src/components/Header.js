@@ -1,38 +1,55 @@
 import { useState } from "react";
-import { LOGO_URL } from "../utils/constants";
+import { LOGO_URL, CART_ICON_URL } from "../utils/constants";
 import { Link } from "react-router-dom";
 
 const Header = () => {
-  // const btnName = "login";
-  const [btnName, setBtnName] = useState("login");
+  const [btnName, setBtnName] = useState("Login");
+  const [cartCount, setCartCount] = useState(3); // Example cart count
+  const [isNavOpen, setIsNavOpen] = useState(false); // State for toggling nav
+
   return (
-    <div className="header">
+    <header className="header">
       <div className="logo-container">
-        <img className="logo" src={LOGO_URL}></img>
+        <Link to="/">
+          <img src={LOGO_URL} alt="Logo" />
+        </Link>
       </div>
-      <div className="nav-items">
+
+      <nav className={`nav-items ${isNavOpen ? "open" : ""}`}>
         <ul>
           <li>
             <Link to="/">Home</Link>
           </li>
+          {/* <li>
+            <Link to="/menu">Menu</Link>
+          </li> */}
           <li>
             <Link to="/about">AboutUs</Link>
           </li>
           <li>
             <Link to="/contact">ContactUs</Link>
           </li>
-          <li>Cart</li>
-          <button
-            className="login-btn"
-            onClick={() => {
-              btnName === "login" ? setBtnName("logout") : setBtnName("login");
-            }}
-          >
-            {btnName}
-          </button>
         </ul>
+      </nav>
+
+      <div className="header-icons">
+        <button className="cart-btn">
+          <img src={CART_ICON_URL} alt="Cart Icon" />
+          <span className="cart-count">{cartCount}</span>{" "}
+          {/* Cart count badge */}
+        </button>
+        <button
+          className="login-btn"
+          onClick={() => setBtnName(btnName === "Login" ? "Logout" : "Login")}
+        >
+          {btnName}
+        </button>
       </div>
-    </div>
+
+      <button className="hamburger" onClick={() => setIsNavOpen(!isNavOpen)}>
+        &#9776;
+      </button>
+    </header>
   );
 };
 

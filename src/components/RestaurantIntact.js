@@ -3,11 +3,32 @@ import RestaurantHeader from "./RestaurantHeader";
 import DealBanner from "./DealBanner";
 import SearchFilter from "./SearchFilter";
 
-const RestaurantIntact = (props) => {
+const RestaurantIntact = ({ resInfo }) => {
+  if (!resInfo) return null;
+
+  const {
+    name,
+    avgRating,
+    totalRatingsString,
+    costForTwoMessage,
+    locality,
+    areaName,
+    sla,
+  } = resInfo;
+
   return (
     <div>
-      <RestaurantHeader />
-      <DealBanner />
+      {/* Pass dynamic data to RestaurantHeader */}
+      <RestaurantHeader
+        name={name}
+        avgRating={avgRating}
+        totalRatingString={totalRatingsString}
+        costForTwo={costForTwoMessage}
+        locality={locality}
+        areaName={areaName}
+        sla={sla}
+      />
+      <DealBanner deals={[]} /> {/* Modify deals based on your data */}
       <SearchFilter />
     </div>
   );

@@ -1,15 +1,13 @@
 import RestaurantCard from "./RestaurantCard";
-import resList from "../utils/mockData";
 import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 
 const Body = () => {
-  //Local State variable
   const [listOfRestaurants, setRestaurants] = useState([]);
   const [filteredRestaurants, setFilteredRestaurants] = useState([]);
-
   const [searchText, setSearch] = useState("");
+
   useEffect(() => {
     fetchData();
   }, []);
@@ -19,17 +17,14 @@ const Body = () => {
       "https://www.swiggy.com/dapi/restaurants/list/v5?lat=25.2138156&lng=75.8647527&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
     );
     const json = await data.json();
-    console.log(json);
+
     setRestaurants(
-      //optional chaining
       json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
     setFilteredRestaurants(
       json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
   };
-
-  //Conditional rendering
 
   return listOfRestaurants.length === 0 ? (
     <Shimmer />
@@ -41,13 +36,11 @@ const Body = () => {
             type="text"
             className="search-box"
             value={searchText}
-            onChange={(e) => {
-              setSearch(e.target.value);
-            }}
+            onChange={(e) => setSearch(e.target.value)}
           />
           <button
+            className="search-btn"
             onClick={() => {
-              //filter ui based on search
               const filteredRestaurant = listOfRestaurants.filter((res) =>
                 res.info.name.toLowerCase().includes(searchText.toLowerCase())
               );
@@ -60,11 +53,10 @@ const Body = () => {
         <button
           className="filter-btn"
           onClick={() => {
-            //filter logic
             const filteredList = listOfRestaurants.filter(
               (res) => res.info.avgRating > 4
             );
-            setRestaurants(filteredList);
+            setFilteredRestaurants(filteredList); // Correctly filter the displayed restaurants
           }}
         >
           Top Rated Restaurants

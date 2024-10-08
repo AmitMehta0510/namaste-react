@@ -1,27 +1,26 @@
 import "./RestaurantHeader.css";
 
-const RestaurantHeader = (props) => {
-  const {
-    id,
-    name,
-    avgRating,
-    totleRatingString,
-    costForTwo,
-    locality,
-    areaName,
-  } = props;
+const RestaurantHeader = ({
+  name,
+  avgRating,
+  totalRatingString,
+  costForTwo,
+  locality,
+  areaName,
+  sla,
+}) => {
   return (
     <div className="restaurant-header">
-      {/* <h1>{name}</h1>
+      <h1>{name}</h1>
       <div className="restaurant-info">
         <span>
-          {avgRating} ({totleRatingString}) • {costForTwo}
+          {avgRating} ({totalRatingString}) • {costForTwo}
         </span>
         <span>
           {locality} : {areaName}
         </span>
-        <span>{props.sla.slaStrin}</span>
-      </div> */}
+        <span>{sla?.slaString}</span> {/* Ensure slaString exists */}
+      </div>
     </div>
   );
 };
