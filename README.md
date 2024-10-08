@@ -65,3 +65,12 @@ Normal JavaScript functions written by fb developers
 
 2. as soon as the page loads, quickly render it to UI , make api call get new data re-render to UI
    (page loads)->(render)->(api call)->(re-render the new data) --> Prefered
+
+# 2 Types of Routing in web apps
+
+I. Client side routing.<Link> this tag is Client side routing</Link>
+II. Server Side routing.
+
+# Dynamic routing
+
+Restaurant per click karne par uska alag menu  page open ho jaye, means we create a dynamic route for every restaurant.

@@ -1,0 +1,17 @@
+.restaurant-header {
+  padding: 20px;
+  background-color: #fff;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.restaurant-info span {
+  display: block;
+  font-size: 14px;
+  color: #444;
+}
+
+.delivery-info p {
+  font-size: 12px;
+  color: #888;
+  margin-top: 10px;
+}

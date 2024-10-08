@@ -5,6 +5,7 @@
   justify-content: space-between;
   align-items: center;
   padding: 10px;
+  height: 80px;
 }
 
 .logo {
@@ -120,5 +121,50 @@
 }
 
 .login-btn {
+  cursor: pointer;
+}
+
+/* MenuCategory style */
+.restaurant-menu {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.menu-category {
+  margin-bottom: 1rem;
+}
+
+.category-header {
+  display: flex;
+  justify-content: space-between;
+  background-color: #f8f8f8;
+  padding: 1rem;
+  cursor: pointer;
+}
+
+.menu-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+  border-bottom: 1px solid #ddd;
+}
+
+.menu-item-info {
+  max-width: 70%;
+}
+
+.menu-item-image img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+}
+
+.menu-item-image button {
+  display: block;
+  margin-top: 10px;
+  padding: 5px 10px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
   cursor: pointer;
 }
