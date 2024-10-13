@@ -38,17 +38,19 @@ const Body = () => {
             value={searchText}
             onChange={(e) => setSearch(e.target.value)}
           />
-          <button
-            className="search-btn"
-            onClick={() => {
-              const filteredRestaurant = listOfRestaurants.filter((res) =>
-                res.info.name.toLowerCase().includes(searchText.toLowerCase())
-              );
-              setFilteredRestaurants(filteredRestaurant);
-            }}
-          >
-            Search
-          </button>
+          <Link to="/search">
+            <button
+              className="search-btn"
+              onClick={() => {
+                const filteredRestaurant = listOfRestaurants.filter((res) =>
+                  res.info.name.toLowerCase().includes(searchText.toLowerCase())
+                );
+                setFilteredRestaurants(filteredRestaurant);
+              }}
+            >
+              Search
+            </button>
+          </Link>
         </div>
         <button
           className="filter-btn"

@@ -447,3 +447,61 @@ h4:nth-child(4) {
     background-position: 200% 0;
   }
 }
+/* episode-08 */
+/* .team-member {
+  width: 250px;
+  height: 300px;
+  border: 1px solid black;
+} */
+
+.team-member-card {
+  width: 300px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin: 20px;
+  transition: transform 0.3s ease;
+  text-align: center;
+}
+
+.team-member-card:hover {
+  transform: scale(1.05);
+}
+
+.card-content h2 {
+  color: #333;
+  margin-bottom: 10px;
+  font-size: 24px;
+}
+
+.card-content h3 {
+  color: #666;
+  margin-bottom: 8px;
+}
+
+.card-content h4 {
+  color: #888;
+  margin-bottom: 5px;
+}
+
+.name {
+  font-weight: bold;
+}
+
+.location {
+  font-style: italic;
+}
+
+.role,
+.contact {
+  font-weight: normal;
+}
+
+.profile-image {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin: 10px 0;
+}
