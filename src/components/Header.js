@@ -1,8 +1,11 @@
 import { useState } from "react";
 import { LOGO_URL, CART_ICON_URL } from "../utils/constants";
 import { Link } from "react-router-dom";
+import useOnlineStatus from "../utils/useOnlineStatus";
 
 const Header = () => {
+  const onlineStatus = useOnlineStatus();
+
   const [btnName, setBtnName] = useState("Login");
   const [cartCount, setCartCount] = useState(3); // Example cart count
   const [isNavOpen, setIsNavOpen] = useState(false); // State for toggling nav
@@ -17,8 +20,12 @@ const Header = () => {
 
       <nav className={`nav-items ${isNavOpen ? "open" : ""}`}>
         <ul>
+          <li>Online Status : {onlineStatus ? "online" : "offline"}</li>
           <li>
             <Link to="/">Home</Link>
+          </li>
+          <li>
+            <Link to="/grocery">Grocery</Link>
           </li>
           {/* <li>
             <Link to="/menu">Menu</Link>
