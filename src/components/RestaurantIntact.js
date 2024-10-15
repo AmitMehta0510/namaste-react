@@ -17,7 +17,7 @@ const RestaurantIntact = ({ resInfo }) => {
   } = resInfo;
 
   return (
-    <div>
+    <div className="bg-white shadow-lg rounded-lg p-6 mb-8 max-w-7xl mx-auto">
       {/* Pass dynamic data to RestaurantHeader */}
       <RestaurantHeader
         name={name}

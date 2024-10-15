@@ -10,16 +10,17 @@ const RestaurantHeader = ({
   sla,
 }) => {
   return (
-    <div className="restaurant-header">
-      <h1>{name}</h1>
-      <div className="restaurant-info">
-        <span>
-          {avgRating} ({totalRatingString}) • {costForTwo}
+    <div className="restaurant-header text-center">
+      <h1 className="text-3xl font-bold text-gray-800 mb-2">{name}</h1>
+      <div className="restaurant-info text-gray-600 space-y-1">
+        <span className="block">
+          <strong className="text-yellow-500">{avgRating}⭐</strong> (
+          {totalRatingString})
         </span>
-        <span>
-          {locality} : {areaName}
+        <span className="block">
+          {locality} • {areaName}
         </span>
-        <span>{sla?.slaString}</span> {/* Ensure slaString exists */}
+        <span className="block text-gray-500">{sla?.slaString}</span>
       </div>
     </div>
   );

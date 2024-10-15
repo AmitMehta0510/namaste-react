@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { json } from "react-router-dom";
 
 const useListOfRestaurants = () => {
   const [listOfRestaurants, setRestaurants] = useState([]);
@@ -15,11 +16,13 @@ const useListOfRestaurants = () => {
     const json = await data.json();
 
     const restaurants =
-      json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle
+      json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle
         ?.restaurants || [];
 
     setRestaurants(restaurants);
     setFilteredRestaurants(restaurants);
+    console.log(json);
+    // console.log(restaurants);
   };
 
   return { listOfRestaurants, filteredRestaurants, setFilteredRestaurants };

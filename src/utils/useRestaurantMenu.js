@@ -18,13 +18,11 @@ const useRestaurantMenu = (resId) => {
 
     // Extract restaurant info and menu categories
     const restaurantInfo = json?.data?.cards[2]?.card?.card?.info; // Dynamic restaurant info
-    const recommendedCategory =
-      json?.data?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card
-        ?.card || {};
+
     const categories =
       json?.data?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards || [];
 
-    const extractedData = categories.slice(2, 20).map((category) => {
+    const extractedData = categories.map((category) => {
       const items = category.card.card.itemCards || [];
       return {
         title: category.card.card.title,
@@ -32,15 +30,11 @@ const useRestaurantMenu = (resId) => {
       };
     });
 
-    // Set restaurant info and menu data
-    setMenuData([
-      {
-        title: recommendedCategory.title,
-        items: recommendedCategory.itemCards,
-      },
-      ...extractedData,
-    ]);
+    // Set restaurant info and menu data without separating recommended category
+    setMenuData(extractedData);
     setResInfo(restaurantInfo);
+    console.log("Fetched restaurant menu", menuData);
+    // console.log("Fetched restaurant menu", resInfo);
   };
 
   const handleToggleCategory = (categoryIndex) => {
