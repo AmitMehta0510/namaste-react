@@ -21,7 +21,7 @@ const useListOfRestaurants = () => {
 
     setRestaurants(restaurants);
     setFilteredRestaurants(restaurants);
-    console.log(json);
+    // console.log(json);
     // console.log(restaurants);
   };
 

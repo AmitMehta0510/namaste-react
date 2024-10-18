@@ -1,4 +1,4 @@
-import RestaurantCard from "./RestaurantCard";
+import RestaurantCard, { RestaurantCardWithOffer } from "./RestaurantCard";
 import Shimmer from "./Shimmer";
 import { useState } from "react";
 import { Link } from "react-router-dom";
@@ -9,6 +9,8 @@ const Body = () => {
   const { listOfRestaurants, filteredRestaurants, setFilteredRestaurants } =
     useListOfRestaurants();
   const [searchText, setSearch] = useState("");
+  console.log(listOfRestaurants);
+  const OfferedRestaurantCard = RestaurantCardWithOffer(RestaurantCard);
 
   const onlineStatus = useOnlineStatus();
 
@@ -23,7 +25,6 @@ const Body = () => {
     <Shimmer />
   ) : (
     <div className="body py-4 px-8 mx-auto max-w-6xl">
-      {" "}
       {/* Set horizontal padding and max width */}
       <div className="filter flex justify-between items-center mb-4">
         <div className="search flex space-x-2">
@@ -65,13 +66,17 @@ const Body = () => {
           Top Rated Restaurants
         </button>
       </div>
-      <div className="res-container flex flex-wrap">
+      <div className="res-container grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
         {filteredRestaurants.map((restaurant) => (
           <Link
             key={restaurant.info.id}
             to={"/restaurants/" + restaurant.info.id}
           >
-            <RestaurantCard resData={restaurant} />
+            {restaurant.info.aggregatedDiscountInfoV3?.header ? (
+              <OfferedRestaurantCard resData={restaurant} />
+            ) : (
+              <RestaurantCard resData={restaurant} />
+            )}
           </Link>
         ))}
       </div>
