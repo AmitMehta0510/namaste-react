@@ -1,52 +1,43 @@
 import { useParams } from "react-router-dom";
+import { useState } from "react";
 import Shimmer from "./Shimmer";
-import RestaurantIntact from "./RestaurantIntact";
-import MenuCategory from "./MenuCategory";
 import useRestaurantMenu from "../utils/useRestaurantMenu"; // Import custom hook
+import RestaurantCategory from "./RestaurantCategory";
 
 const RestaurantMenu = () => {
   const { resId } = useParams();
 
   // Use custom hook to fetch restaurant data
-  const { resInfo, menuData, openCategory, handleToggleCategory } =
-    useRestaurantMenu(resId);
-
-  // Base URL for dish images (this should match your actual image URL base)
-  const IMAGE_BASE_URL = "https://cdn.example.com/images/";
+  const resInfo = useRestaurantMenu(resId);
+  const [showIndex, setShowIndex] = useState(null);
 
   if (resInfo === null) return <Shimmer />;
 
+  const { name, cuisines, costForTwoMessage } =
+    resInfo?.cards[2]?.card?.card?.info;
+
+  const categories =
+    resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter(
+      (c) =>
+        c?.card?.card?.["@type"] ===
+        "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"
+    );
+
+  console.log(categories);
   return (
-    <div className="menu py-6 px-4 lg:px-16 max-w-7xl mx-auto">
-      {/* Pass restaurant info to RestaurantIntact */}
-      <RestaurantIntact resInfo={resInfo} />
-      <h1 className="text-3xl font-semibold text-center my-6">
-        Restaurant Menu
-      </h1>
-      <div className="menu-list space-y-8">
-        {menuData?.length > 0 ? (
-          menuData.map((category, categoryIndex) => (
-            <MenuCategory
-              key={categoryIndex}
-              category={{ name: category.title }}
-              items={category.items?.map((item) => ({
-                name: item.card.info.name,
-                price: item.card.info.price / 100,
-                description: item.card.info.description,
-                imageUrl: item.card.info.imageUrl
-                  ? `${IMAGE_BASE_URL}${item.card.info.imageUrl}` // Construct the full image URL
-                  : "", // Provide an empty string if there's no image
-                rating: item.card.info.rating, // Make sure you also pass the rating if available
-                totalRatings: item.card.info.totalRatings, // Pass the total number of ratings if available
-              }))}
-              isOpen={openCategory === categoryIndex}
-              onToggle={() => handleToggleCategory(categoryIndex)}
-            />
-          ))
-        ) : (
-          <p className="text-center text-lg text-gray-500">No menu available</p>
-        )}
-      </div>
+    <div className="menu text-center bg-gray-100 min-h-screen p-6">
+      <h1 className="font-bold text-3xl my-6 text-gray-800">{name}</h1>
+      <p className="font-semibold text-lg text-gray-600 mb-4">
+        {cuisines.join(", ")} - {costForTwoMessage}{" "}
+      </p>
+      {categories.map((category, index) => (
+        <RestaurantCategory
+          key={category?.card?.card?.title}
+          data={category?.card?.card}
+          showItems={index === showIndex ? true : false}
+          setShowIndex={() => setShowIndex(index)}
+        />
+      ))}
     </div>
   );
 };

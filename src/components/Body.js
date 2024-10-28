@@ -9,7 +9,7 @@ const Body = () => {
   const { listOfRestaurants, filteredRestaurants, setFilteredRestaurants } =
     useListOfRestaurants();
   const [searchText, setSearch] = useState("");
-  console.log(listOfRestaurants);
+  // console.log(listOfRestaurants);
   const OfferedRestaurantCard = RestaurantCardWithOffer(RestaurantCard);
 
   const onlineStatus = useOnlineStatus();

@@ -26,6 +26,6 @@ const useListOfRestaurants = () => {
   };
 
   return { listOfRestaurants, filteredRestaurants, setFilteredRestaurants };
-};
+};1
 
 export default useListOfRestaurants;
